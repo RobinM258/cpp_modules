@@ -3,22 +3,23 @@
 int main()
 {
     PhoneBook pb;
-    while(1)
+    std::string str;
+    while(str != "EXIT")
     {
-        std::string str;
-        std::cin >> str;
+        std::cout << "Utilise SEARCH, ADD, EXIT" << std::endl;
+        std::getline(std::cin, str);
         if (std::cin.eof())
-            break;
+			return 0;
         if (str == "ADD")
         {
-            pb.add_contact();
+            if (pb.add_contact() == 0)
+                return 0;
         }
         else if (str == "SEARCH")
         {
-           pb.display_contact();
+           if (pb.display_contact() == 0)
+                return 0;
         }
-        else if (str == "EXIT")
-            return (0);
     }
     return (0);
 }

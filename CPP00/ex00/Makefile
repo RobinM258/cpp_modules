@@ -1,6 +1,6 @@
 NAME = megaphone
 
-F =	main 
+F =	megaphone
 S = $(foreach f, $(F), $(f).cpp)
 
 OBJ = $(S:.cpp=.o)

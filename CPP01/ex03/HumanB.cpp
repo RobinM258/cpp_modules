@@ -1,17 +1,30 @@
 #include "HumanB.hpp"
 
-
-HumanB::HumanB(void){}
-HumanB::~HumanB(void){}
-HumanB::HumanB(std::string names, std::string Weapons){ name = names; weapon = Weapons; }
-HumanB::HumanB(std::string names){name = names;}
-
-void HumanB::attack(void)
-{
-    std::cout << name << " attacks with their " << weapon << std::endl;
+HumanB::HumanB( Weapon &weapon, std::string name ): weapon(&weapon),name(name){
+	std::cout << "HumanB " << name << " with " << weapon.getType() << GREEN << " created" << WHITE << std::endl;
 }
 
-void HumanB::setWeapon(Weapon &nWeapon)
-{
-    weapon = nWeapon.getType();
+HumanB::HumanB( std::string newName ){
+	name = newName;
+	std::cout << "HumanB " << name << " with no weapon" << GREEN << " created" << WHITE << std::endl;
+}
+
+HumanB HumanB::operator=(const HumanB &human){
+	weapon = human.weapon;
+	name = human.name;
+	return ( *this );
+}
+
+HumanB::~HumanB(){ std::cout << "HumanB " << name << " with " << weapon->getType() << RED << " deleted" << WHITE << std::endl; }
+
+void	HumanB::attack( void ){ 
+	if (weapon->getType().empty())
+		std::cout << name << " cannot attacks because he does not have weapons" << std::endl;
+	else
+		std::cout << name << " attacks with his " << weapon->getType() << std::endl; 
+}
+
+void	HumanB::setWeapon( Weapon &newWeapon ){
+	weapon = &newWeapon;
+	std::cout << name << " now have a " << weapon->getType() << std::endl;
 }

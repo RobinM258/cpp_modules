@@ -1,43 +1,31 @@
 
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <iostream>
 
 
 
-std::string ft_replace(std::string line, char *s1, char *s2)
+std::string ft_replace(std::string line, const char *s1, const char *s2)
 {
-	int i = 0;
-	int j = 0;
-	std::string ret;
-	if (line.find(s1) != (long long unsigned int)-1)
-	{
-		while (line[i])
-		{
-			if (line[i] == s1[0])
-			{
-				j = 0;
-				while (line [i + j] && s1[j] && s1[j] == line[i + j])
-					j++;
-				if (!s1[j])
-				{
-					i += j - 1;
-					j = 0;
-					while (s2[j])
-					{
-						ret.push_back(s2[j]);
-						j++;
-					}
-				}
-			}
-			else 
-				ret.push_back(line[i]);
-			i++;
-		}
-		return ret;
-	}
-	else 
-		return (line);
+    std::string result;
+    size_t pos = 0;
+    while (pos < line.length())
+    {
+        size_t found = line.find(s1, pos);
+        if (found != std::string::npos)
+        {
+            result += line.substr(pos, found - pos); 
+            result += s2;                            
+            pos = found + strlen(s1);               
+        }
+        else
+        {
+            result += line.substr(pos);
+            break;
+        }
+    }
+    return result;
 }
 
 int main (int ac, char **av)
@@ -51,7 +39,7 @@ int main (int ac, char **av)
 	{
 		std::string line;
 		std::string n = (const char *)av[1];
-		std::ofstream out(n + ".replace");
+		std::ofstream out((n + ".replace").c_str());
 		while (std::getline(in, line))
 		{
 			std::string test = ft_replace(line, av[2], av[3]);

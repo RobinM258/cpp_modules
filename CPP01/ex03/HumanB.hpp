@@ -1,5 +1,5 @@
-#ifndef Demeter
-# define Demeter
+#ifndef HUMANSB
+# define HUMANSB
 
 # include "Weapon.hpp"
 
@@ -13,7 +13,6 @@ class HumanB{
 		HumanB( std::string name );
 		HumanB( Weapon &weapon, std::string name );
 		~HumanB( void );
-		HumanB operator=(const HumanB &);
 		void	attack( void );
 		void	setWeapon( Weapon &weapon );
 };

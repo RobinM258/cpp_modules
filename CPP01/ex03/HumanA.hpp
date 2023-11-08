@@ -1,5 +1,5 @@
-#ifndef ARES
-# define ARES
+#ifndef HUMANA
+# define HUMANA
 
 # include "Weapon.hpp"
 
@@ -12,7 +12,6 @@ class HumanA{
 	public:
 			HumanA( Weapon &weapon, std::string name );
 			~HumanA( void );
-			HumanA operator=( const HumanA & );
 			void	attack( void );
 };
 

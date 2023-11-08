@@ -4,10 +4,11 @@ int main (void)
 {
 
 	Zombie *a = add_Zombie(15, "Kieron");
-	//Zombie *b = add_Zombie(15, "Robin");
+	Zombie *b = add_Zombie(15, "Robin");
 	for (int i = 0; i < 15; i++)
 		a[i].announce();
-	//b->announce();
+	b->announce();
 	delete []a;
+	delete []b;
 	return 0;
 }

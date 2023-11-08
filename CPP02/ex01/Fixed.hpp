@@ -10,15 +10,17 @@ public:
     Fixed(const float nb);
     ~Fixed(void);
 
-    float toFloat(void) const;
-    int toInt(void);
     Fixed &operator=(const Fixed &);
 
     int getRawbits(void) const;
     void setRawbits(int const raw);
+    int toInt(void) const;
+    float toFloat(void) const;
 
 private:
     int nb;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed &f);
 
 #endif

@@ -1,18 +1,16 @@
-NAME = Harl_filter
+NAME = Fixed
 
-F =	main \
-	Harl
+F = main \
+	Fixed
 
 S = $(foreach f, $(F), $(f).cpp)
-
 OBJ = $(S:.cpp=.o)
-
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@c++ -o $(NAME) $(OBJ) $(CFLAGS)
+	@c++ $(OBJ) $(CFLAGS) -o $(NAME)
 
 .cpp.o:
 	@c++ -o $@ -c $< $(CFLAGS)

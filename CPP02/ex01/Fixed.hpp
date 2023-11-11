@@ -8,6 +8,7 @@ public:
     Fixed(void);
     Fixed(const int nb);
     Fixed(const float nb);
+    Fixed(const Fixed &obj);
     ~Fixed(void);
 
     Fixed &operator=(const Fixed &);

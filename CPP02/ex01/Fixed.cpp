@@ -22,6 +22,11 @@ Fixed &Fixed::operator=(const Fixed &n)
         this->nb = n.getRawbits();
     return *this;
 }
+Fixed::Fixed(const Fixed &obj)
+{
+    std::cout << "copy constructor created" << std::endl;
+    *this = obj;
+} 
 
 std::ostream& operator<<(std::ostream& os, const Fixed &f){
     os << f.toFloat();
@@ -29,13 +34,11 @@ std::ostream& operator<<(std::ostream& os, const Fixed &f){
 }
 int Fixed::getRawbits(void) const 
 {
-    std::cout << "get raw" << std::endl;
     return this->nb;
 }
 
 void Fixed::setRawbits(int const raw)
 {
-    std::cout << "set raw" << std::endl;
     this->nb = raw;
 }
 

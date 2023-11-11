@@ -11,5 +11,5 @@ Zombie &Zombie::operator=(const Zombie &z)
 
 void    Zombie::announce( void )
 {
-    std::cout << name << ": BraiiiiiiinnnnnnzzzzzZ" << std::endl;
+    std::cout << name << ": BraiiiiiiinnnnnnzzzzzZ..." << std::endl;
 }

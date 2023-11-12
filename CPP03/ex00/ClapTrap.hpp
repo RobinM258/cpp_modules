@@ -12,7 +12,7 @@ private:
     unsigned int attack_Damage;
 
 public:
-    ClapTrap(void);
+    ClapTrap(std::string nm);
     ~ClapTrap(void);
     ClapTrap &operator=(const ClapTrap &);
     void attack(const std::string& target);
@@ -25,5 +25,7 @@ public:
     std::string getName (void) const;
 
 };
+
+std::ostream& operator<<(std::ostream& os, const ClapTrap &c);
 
 #endif 

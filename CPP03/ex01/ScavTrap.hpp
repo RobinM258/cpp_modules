@@ -9,7 +9,7 @@ private:
         ScavTrap(void);
 
 public:
-    ScavTrap(std::string nm);
+    ScavTrap(std::string );
     ScavTrap(const ScavTrap &);
     ~ScavTrap(void);
     ScavTrap &operator=(const ScavTrap &);
@@ -17,6 +17,5 @@ public:
     void guardGate(void);
 };
 
-std::ostream& operator<<(std::ostream& os, const ScavTrap &c);
 
 #endif

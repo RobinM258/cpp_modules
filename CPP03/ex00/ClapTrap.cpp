@@ -16,6 +16,12 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &n)
     }
     return *this;
 }
+
+ClapTrap::ClapTrap(const ClapTrap &n){
+    std::cout << "Copy" << std::endl;
+    *this = n;
+}
+
 void ClapTrap::attack(const std::string& target)
 {
     if (hit_Points == 0)

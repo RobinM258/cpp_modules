@@ -17,6 +17,4 @@ public:
     void guardGate(void);
 };
 
-std::ostream& operator<<(std::ostream& os, const ScavTrap &c);
-
 #endif

@@ -34,11 +34,5 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate(void)
 {
-    std::cout << "ScavTrap " << name << " enter guate keeper mode." << std::endl;
-}
-
-std::ostream &operator<<(std::ostream& os, const ScavTrap &c)
-{
-    os << c.getName() << " damage " << c.getDmg() << " hit_Points " << c.getHp() << " energy points " << c.getEp() << std::endl;
-    return os;
+    std::cout << "ScavTrap " << name << " enter gate keeper mode." << std::endl;
 }

@@ -1,5 +1,5 @@
-#ifndef FRAGTRAp
-#define FRAGTRAp
+#ifndef FRAGTRAP
+#define FRAGTRAP
 
 #include "ClapTrap.hpp"
 
@@ -12,10 +12,8 @@ public:
     FragTrap(const FragTrap &);
     ~FragTrap(void);
     FragTrap &operator=(const FragTrap &);
-    void attack(const std::string& target);
-    void hightFivesGuys(void);
-};
 
-std::ostream& operator<<(std::ostream& os, const FragTrap &c);
+    void highFivesGuys(void);
+};
 
 #endif

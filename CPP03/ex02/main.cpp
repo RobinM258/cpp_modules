@@ -26,6 +26,7 @@ int main() {
     cp.takeDamage(st.getDmg());
     cp.takeDamage(st.getDmg());
     cp.attack(st.getName());
+    ft.highFivesGuys();
     std::cout << cp << std::endl;
     std::cout << cp2 << std::endl;
 

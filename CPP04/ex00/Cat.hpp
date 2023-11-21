@@ -8,6 +8,8 @@ class Cat: public Animal{
         std::string type;
     public:
         Cat(void);
+        Cat(Cat & rf);
+        Cat & operator=(Cat const & r);
         ~Cat(void);
         void makeSound(void) const;
         std::string getType(void) const;

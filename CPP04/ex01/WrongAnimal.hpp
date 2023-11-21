@@ -1,17 +1,15 @@
-#ifndef ANIMAL
-#define ANIMAL
+#ifndef WRONGANIMAL
+#define WRONGANIMAL
 
 #include <iostream>
 
-class Animal {
+class WrongAnimal {
 
     protected:
         std::string type;
     public:
-        Animal(void);
-        Animal(Animal & ref);
-        Animal & operator=(Animal const & r);
-        virtual ~Animal(void);
+        WrongAnimal(void);
+        virtual ~WrongAnimal(void);
         virtual void makeSound(void) const;
         virtual std::string getType(void) const;
 

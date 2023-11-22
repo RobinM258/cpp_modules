@@ -1,7 +1,7 @@
 #ifndef CHARACTER
 #define CHARACTER
 
-#include <iostream>
+#include "AMateria.hpp"
 
 class Character {
     public:

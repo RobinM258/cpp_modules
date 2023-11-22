@@ -2,7 +2,7 @@
 #define MATERIASOURCE
 
 #include <iostream>
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 
 class IMaterialSource {
     public:

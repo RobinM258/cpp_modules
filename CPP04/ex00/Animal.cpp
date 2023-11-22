@@ -4,7 +4,7 @@ Animal::Animal(void){std::cout << "constructor Animal created" << std::endl; thi
 Animal::~Animal(void){std::cout << "constructor Animal deleted" << std::endl;}
 
 
-Animal::Animal(Animal & rf){
+Animal::Animal(const Animal & rf){
     this->type = rf.type;
     std::cout << "Copy constructor Animal constructed" << std::endl;
 }

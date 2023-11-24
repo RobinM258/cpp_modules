@@ -1,14 +1,18 @@
 #ifndef MATERIASOURCE
 #define MATERIASOURCE
 
-#include <iostream>
-#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class IMaterialSource {
-    public:
-        virtual ~IMaterialSource();
-        virtual void learnMateria(AMateria*) = 0;
-        virtual AMateria* createMateria(std::string const & type) = 0;
-    private:
+class MateriaSource : public IMateriaSource
+{
+	public:
+		MateriaSource();
+		MateriaSource(MateriaSource const & ref);
+		~MateriaSource();
+		MateriaSource & operator=(MateriaSource const & ref);
+		void learnMateria(AMateria *m);
+		AMateria* createMateria(std::string const & type);
+	private:
+		AMateria	*_inventory[4];
 };
 #endif 

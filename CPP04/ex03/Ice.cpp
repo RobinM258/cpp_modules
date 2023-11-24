@@ -25,7 +25,7 @@ Ice *Ice::clone() const
     return cl;
 }
 
-void use(ICharacter& target)
+void Ice::use(ICharacter& target)
 {
     std::string name_t = target.getName();
     std::cout << "Shoot with an ice bolt at " << name_t << std::endl;

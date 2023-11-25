@@ -1,6 +1,7 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void){std::cout << "constructor WrongAnimal created" << std::endl; this->type = "WrongAnimal";}
+WrongAnimal::WrongAnimal(void): type("WrongAnimal") {std::cout << "constructor WrongAnimal created" << std::endl; this->type = "WrongAnimal";}
+WrongAnimal::WrongAnimal(std::string ty): type(ty) {std::cout << "constructor Animal created" << std::endl;}
 WrongAnimal::~WrongAnimal(void){std::cout << "constructor WrongAnimal deleted" << std::endl;}
 
 WrongAnimal::WrongAnimal(WrongAnimal & rf){

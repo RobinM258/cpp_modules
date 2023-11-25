@@ -3,9 +3,7 @@
 
 #include "Animal.hpp"
 
-class Cat: public Animal{
-    private:
-        std::string type;
+class Cat: public Animal {
     public:
         Cat(void);
         Cat(Cat & rf);

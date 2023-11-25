@@ -1,9 +1,8 @@
 #include "Dog.hpp"
 #include "Brain.hpp"
 
-Dog::Dog()
+Dog::Dog(): Animal("Dog")
 {
-	this->type = "Dog";
 	this->brain = new Brain;
 	std::cout << "Constructor dog created" << std::endl;
 }

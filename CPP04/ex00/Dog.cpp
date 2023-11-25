@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog(void){type = "Dog"; std::cout << "constructor Dog created" << std::endl;}
+Dog::Dog(void): Animal("Dog") {std::cout << "constructor Dog created" << std::endl;}
 Dog::~Dog(void){std::cout << "constructor Dog deleted" << std::endl;}
 
 Dog::Dog(Dog & rf): Animal(rf){

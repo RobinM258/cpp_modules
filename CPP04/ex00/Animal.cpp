@@ -1,6 +1,7 @@
 #include "Animal.hpp"
 
-Animal::Animal(void){std::cout << "constructor Animal created" << std::endl; this->type = "animal";}
+Animal::Animal(void): type("animal"){std::cout << "constructor Animal created" << std::endl;}
+Animal::Animal(std::string ty): type(ty){std::cout << "constructor Animal created" << std::endl;}
 Animal::~Animal(void){std::cout << "constructor Animal deleted" << std::endl;}
 
 

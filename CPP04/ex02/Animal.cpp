@@ -1,11 +1,10 @@
 #include "Animal.hpp"
 
 Animal::Animal(void){std::cout << "constructor Animal created" << std::endl; this->type = "animal";}
-Animal::Animal(std::string ty): type(ty){std::cout << "constructor Animal created" << std::endl;}
 Animal::~Animal(void){std::cout << "constructor Animal deleted" << std::endl;}
 
 
-Animal::Animal(const Animal & rf){
+Animal::Animal(Animal const & rf){
     this->type = rf.type;
     std::cout << "Copy constructor Animal constructed" << std::endl;
 }

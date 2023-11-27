@@ -11,10 +11,8 @@ class Ice :public AMateria
         Ice(Ice const &);
         Ice & operator=(Ice const &);
         std::string const & getType() const;
-        Ice *clone() const;
+        AMateria *clone() const;
         void use(ICharacter& target);
-    private:
-        std::string _type;
 
 };
 #endif

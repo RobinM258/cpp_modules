@@ -10,8 +10,9 @@ class Cure :public AMateria
         ~Cure();
         Cure(Cure const &);
         Cure & operator=(Cure const &);
-        virtual AMateria* clone() const;
-        virtual void use (ICharacter& target);
+        std::string const & getType() const;
+        AMateria* clone() const;
+        void use (ICharacter& target);
 
 };
 #endif

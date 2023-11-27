@@ -7,9 +7,9 @@ Cure::Cure(Cure const & ref): AMateria("cure")
 {
     *this = ref;
 }
-Cure& Cure::operator=( const Cure& r)
+Cure& Cure::operator=( Cure const &r)
 {
-    std::cout << "operator" << r.getType() << std::endl;
+    std::cout << "operator" << r._type << std::endl;
     if (this != &r)
         _type = r._type;
     return *this;

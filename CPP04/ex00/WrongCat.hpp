@@ -5,7 +5,6 @@
 
 class WrongCat: public WrongAnimal{
 
-
     public:
         WrongCat(void);
         WrongCat(WrongCat & r);

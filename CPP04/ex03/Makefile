@@ -16,7 +16,7 @@ $(NAME): $(OBJ)
 	@c++ $(OBJ) $(CFLAGS) -o $(NAME)
 
 .cpp.o:
-	@c++ -o $@ -c $< $(CFLAGS)
+	c++ -o $@ -c $< $(CFLAGS)
 
 clean:
 	@rm -rf $(OBJ)

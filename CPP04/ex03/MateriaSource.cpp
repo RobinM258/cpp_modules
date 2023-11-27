@@ -17,7 +17,7 @@ MateriaSource::MateriaSource(MateriaSource const & ref)
 		if (ref._inventory[i])
 			_inventory[i] = (ref._inventory[i])->clone();
 	}
-	std::cout << "Materia copy" << std::endl;
+	std::cout << "Materia copy created" << std::endl;
 }
 
 MateriaSource & MateriaSource::operator=(MateriaSource const & ref)

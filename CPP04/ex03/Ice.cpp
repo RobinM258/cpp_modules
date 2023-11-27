@@ -19,7 +19,7 @@ std::string const & Ice::getType(void) const
     return _type;
 }
 
-Ice *Ice::clone() const
+AMateria *Ice::clone() const
 {
     Ice *cl = new Ice;
     return cl;

@@ -24,7 +24,7 @@ std::string const & Character::getName() const
 	return (this->_name);
 }
 
-Character::Character(Character const & ref) : _name(ref.getName() + "_copy")
+Character::Character(const Character & ref) : _name(ref._name + "_copy")
 {
 	for(int i = 0; i < 4; i++)
 	{
@@ -37,7 +37,6 @@ Character::Character(Character const & ref) : _name(ref.getName() + "_copy")
 
 Character & Character::operator=(Character const & ref)
 {
-	// Impossible to change name because it's constant
 	for(int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])

@@ -7,7 +7,7 @@ class Character : public ICharacter
 {
 	public:
 		Character(std::string name);
-		Character(Character const & ref);
+		Character(const Character & ref);
 		~Character();
 		Character & operator=(Character const & ref);
 		std::string const & getName() const;

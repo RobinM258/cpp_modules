@@ -12,10 +12,12 @@ int main( void )
 	delete dog;
 	delete cat;
 	std::cout << std::endl;
-	std::cout << std::endl;
 
 	Dog Kieron;
     Cat Victor;
+
+	std::cout << std::endl;
+	
     Dog & Kieron_ref = Kieron;
     Dog False_Kieron(Kieron_ref);
     Cat & Victor_ref = Victor;

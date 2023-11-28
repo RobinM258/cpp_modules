@@ -54,7 +54,7 @@ void MateriaSource::learnMateria(AMateria *m)
 		return ;
 	}
 	_inventory[i] = m;
-	std::cout << m->getType() << "Materia learned" << std::endl;
+	std::cout << m->getType() << " Materia learned" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

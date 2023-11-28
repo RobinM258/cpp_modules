@@ -7,7 +7,7 @@ F = main \
 	Brain 
 S = $(foreach f, $(F), $(f).cpp)
 OBJ = $(S:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g
 
 all: $(NAME)
 

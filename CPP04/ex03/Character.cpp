@@ -2,7 +2,7 @@
 
 Character::Character(std::string name) : _name(name)
 {
-	std::cout << "A character named \"" << _name << "\" was created\n";
+	std::cout << "Constructor character name : " << _name << " was created" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
 		this->_inventory[i] = 0;
@@ -16,7 +16,7 @@ Character::~Character()
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
-	std::cout << "Character named " << this->_name << " was destroyed\n";
+	std::cout << "Character named " << this->_name << " was destroyed" << std::endl;
 }
 
 std::string const & Character::getName() const
@@ -28,11 +28,10 @@ Character::Character(const Character & ref) : _name(ref._name + "_copy")
 {
 	for(int i = 0; i < 4; i++)
 	{
-		// Deep copy!
 		if ((ref._inventory)[i])
 			(this->_inventory)[i] = (ref._inventory[i])->clone();
 	}
-	std::cout << "A character named " << _name << " was created from copy of " << ref._name << "\n";
+	std::cout << "A character named " << _name << " was created from copy of " << ref._name << std::endl;
 }
 
 Character & Character::operator=(Character const & ref)
@@ -53,7 +52,7 @@ void Character::equip(AMateria* m)
 
 	if (!m)
 	{
-		std::cout << this->_name << " tried to equip nothing and it did nothing\n";
+		std::cout << this->_name << " tried to equip nothing and it did nothing" << std::endl;
 		return ;
 	}
 	while ((this->_inventory)[i] != 0 && i < 4)
@@ -64,19 +63,19 @@ void Character::equip(AMateria* m)
 		return ;
 	}
 	(this->_inventory)[i] = m;
-	std::cout << this->_name << " equipped materia " << m->getType() << " in slot " << i << "\n";
+	std::cout << this->_name << " equipped materia " << m->getType() << " in slot " << i << std::endl;
 }
 
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= 4)
-		std::cout << this->_name << " tried to unequip nothing at slot " << idx << " and it did nothing\n";
+		std::cout << this->_name << " tried to unequip nothing at slot " << idx << " and it did nothing" << std::endl;
 	else if (!(this->_inventory)[idx])
-		std::cout << this->_name << " has nothing equipped at slot " << idx << " so he can't unequip it\n";
+		std::cout << this->_name << " has nothing equipped at slot " << idx << " so he can't unequip it" << std::endl;
 	else
 	{
 		AMateria *ptr = (this->_inventory)[idx];
-		std::cout << this->_name << " unequipped " << ptr->getType() << " at slot "<< idx << "\n";
+		std::cout << this->_name << " unequipped " << ptr->getType() << " at slot "<< idx << std::endl;
 		(this->_inventory)[idx] = 0;
 	}
 }

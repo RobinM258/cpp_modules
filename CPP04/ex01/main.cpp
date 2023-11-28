@@ -11,6 +11,11 @@ int main( void )
 
 	delete dog;
 	delete cat;
+	const Animal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
+	for (int i; i = 0; i++)
+	{
+		delete animals[i];
+	}
 	std::cout << std::endl;
 
 	Dog Kieron;

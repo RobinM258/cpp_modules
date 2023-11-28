@@ -30,6 +30,8 @@ Character::Character(const Character & ref) : _name(ref._name + "_copy")
 	{
 		if ((ref._inventory)[i])
 			(this->_inventory)[i] = (ref._inventory[i])->clone();
+		else
+			(this->_inventory)[i] = 0;
 	}
 	std::cout << "A character named " << _name << " was created from copy of " << ref._name << std::endl;
 }
@@ -42,6 +44,8 @@ Character & Character::operator=(Character const & ref)
 			delete this->_inventory[i];
 		if (ref._inventory[i])
 			this->_inventory[i] = (ref._inventory[i])->clone();
+		else
+			(this->_inventory)[i] = 0;
 	}
 	return (*this);
 }
@@ -62,7 +66,7 @@ void Character::equip(AMateria* m)
 		std::cout << this->_name << " can't equip more than 4 Materia";
 		return ;
 	}
-	(this->_inventory)[i] = m;
+	(this->_inventory)[i] = m->clone();
 	std::cout << this->_name << " equipped materia " << m->getType() << " in slot " << i << std::endl;
 }
 
@@ -88,7 +92,7 @@ void Character::use(int idx, ICharacter& target)
 	{
 		std::cout << "Nothing found to use at index " << idx << std::endl;
 		return ;
-	}
+	} 
 	std::cout << name;
 	_inventory[idx]->use(target);
 }

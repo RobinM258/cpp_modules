@@ -28,6 +28,8 @@ MateriaSource & MateriaSource::operator=(MateriaSource const & ref)
 			delete _inventory[i];
 		if (ref._inventory[i])
 			_inventory[i] = (ref._inventory[i])->clone();
+		else 
+			_inventory[i] = 0;
 	}
 	return (*this);
 }
@@ -53,7 +55,7 @@ void MateriaSource::learnMateria(AMateria *m)
 		std::cout << "Cannot learn more than 4 materia" << std::endl;
 		return ;
 	}
-	_inventory[i] = m;
+	_inventory[i] = m->clone();
 	std::cout << m->getType() << " Materia learned" << std::endl;
 }
 

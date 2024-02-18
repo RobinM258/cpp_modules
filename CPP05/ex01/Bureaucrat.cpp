@@ -16,6 +16,20 @@ Bureaucrat::Bureaucrat(int nb, std::string na) : name(na)
 
 Bureaucrat::~Bureaucrat(void){std::cout << "Bureaucrat deleted" << std::endl;}
 
+Bureaucrat::Bureaucrat(const Bureaucrat &src)
+{
+    std::cout << "Bureaucrat copy created" << std::endl;
+    *this = src;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
+{
+    std::cout << "Bureaucrat operator called" << std::endl;
+    this->grade =src.getGrade();
+    return *this;
+
+}
+
 std::string Bureaucrat::getName(void) const {
     return(this->name);
 }

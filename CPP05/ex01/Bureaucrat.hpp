@@ -11,7 +11,8 @@ class Bureaucrat {
         size_t grade;
     public:
         Bureaucrat(int nb, std::string na);
-        Bureaucrat(const Bureaucrat & ref);
+        Bureaucrat(const Bureaucrat &src);
+        Bureaucrat &operator=(const Bureaucrat &src);
         ~Bureaucrat(void);
         std::string getName(void) const;
         size_t getGrade(void) const;

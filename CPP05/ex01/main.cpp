@@ -1,51 +1,16 @@
-#include "Bureaucrat.hpp"
+
+#include "Form.hpp"
 
 int main (void)
 {
-    try
-    {
-        Bureaucrat test(150, "Robin");
-        std::cout << test.getName() << std::endl;
+    Bureaucrat bureau = Bureaucrat(150, "robin");
+    Form test = Form();
+    std::cout << test << std::endl;
+    bureau.signForm(test);
+    test.beSigned(bureau);
 
-        test.incrementGrade();
-        test.decrementGrade();
-        test.decrementGrade();
-        std::cout << test;
-    }
-    catch(const std::exception & e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    std::cout <<"...................................................................................." << std::endl;
-    try
-    {
-        Bureaucrat test(150, "Kieron");
-        std::cout << test.getName() << std::endl;
-
-        test.incrementGrade();
-        test.decrementGrade();
-        test.incrementGrade();
-        test.incrementGrade();
-        test.incrementGrade();
-        std::cout << test;
-    }
-    catch(const std::exception & e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    std::cout <<"...................................................................................." << std::endl;
-    try
-    {
-        Bureaucrat test(1, "David");
-        std::cout << test.getName() << std::endl;
-
-        test.incrementGrade();
-        test.decrementGrade();
-        std::cout << test;
-    }
-    catch(const std::exception & e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    std::cout << "..............................................................." << std::endl;
+    Form kieron = Form("kieron", 158, 150);
+    std::cout << kieron << std::endl;
     return 0;
 }

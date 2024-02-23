@@ -3,6 +3,9 @@
 #define BUREAU
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 
@@ -18,6 +21,7 @@ class Bureaucrat {
         size_t getGrade(void) const;
         void decrementGrade(void);
         void incrementGrade(void);
+        void signForm(const Form &src);
     class GradeTooLowException : public std::exception
 	{
 	public:
@@ -29,7 +33,7 @@ class Bureaucrat {
 	public:
 		virtual const char *what() const throw();
 	};
-
+    
 };
 
 std::ostream &operator<<(std::ostream& , const Bureaucrat &);

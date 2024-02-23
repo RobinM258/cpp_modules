@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Form
 
 F = main \
 	Bureaucrat \

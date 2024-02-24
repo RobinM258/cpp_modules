@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Form::Form(void): name("default"), sign(false), sign_grade(150), exec_grade(150)
 {
@@ -80,6 +80,10 @@ const char *Form::GradeTooHighException::what(void) const throw()
 	return ("Grade too high");
 };
 
+const char *Form::SignFalseExeption::what(void) const throw()
+{
+	return ("Sign false");
+};
 std::ostream &operator<<(std::ostream& os, const Form &c)
 {
     os << c.getName() << ", sign " << c.getSign()<< " exec grade " << c.getExecGrade() << " sign grade " << c.getSignGrade() << std::endl;

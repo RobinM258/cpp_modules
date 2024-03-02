@@ -3,7 +3,9 @@ NAME = Form
 F = main \
 	Bureaucrat \
 	AForm \
-	ShrubberyCreationForm 
+	ShrubberyCreationForm \
+	RobotomyRequestForm \
+	PresidentialPardonForm
 
 S = $(foreach f, $(F), $(f).cpp)
 OBJ = $(S:.cpp=.o)

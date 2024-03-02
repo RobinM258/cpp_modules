@@ -62,7 +62,7 @@ void Bureaucrat::incrementGrade(void) {
         throw Bureaucrat::GradeTooHighException();
     }
     grade = grade - 1;
-    std::cout << "Grade to " << name << " up to " << grade << "." << std::endl;
+    std::cout << "Grade of " << name << " went up to " << grade << "." << std::endl;
 }
 
 void Bureaucrat::decrementGrade(void) {
@@ -71,7 +71,7 @@ void Bureaucrat::decrementGrade(void) {
         throw Bureaucrat::GradeTooLowException();
     }
     grade = grade + 1;
-    std::cout << "Grade to " << name << " down to " << grade << "." << std::endl;
+    std::cout << "Grade of " << name << " went down to " << grade << "." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream& os, const Bureaucrat &c)

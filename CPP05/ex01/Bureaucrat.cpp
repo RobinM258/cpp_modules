@@ -34,6 +34,8 @@ void Bureaucrat::signForm(const Form &src)
 {
     if (src.getSign() == true)
         std::cout << name << " signed " << src.getName() << std::endl;
+    else
+        
 
 }
 

@@ -43,7 +43,7 @@ Form* Intern::makeform(std::string name, std::string target)
     {
         if (name == requestform[i])
         {
-            std::cout << "Intern creates" << name << std::endl;
+            std::cout << "Intern creates " << name << std::endl;
             return form[i];
         }
         i++;

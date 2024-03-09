@@ -9,11 +9,13 @@ int main (void)
 {
 
     std::cout << "..............................................................." << std::endl;
+    {
     Intern  someRandomIntern;
         Form*   rrf;
 
         rrf = someRandomIntern.makeform("shruberry", "Jean");
         delete rrf;
+    }
     try
     {
         Form test("Kieron", 150, 150);

@@ -1,4 +1,4 @@
-NAME = Iter
+NAME = Array
 
 F = main 
 S = $(foreach f, $(F), $(f).cpp)

@@ -30,11 +30,16 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 
 }
 
-void Bureaucrat::signForm(const Form &src)
+void Bureaucrat::signForm(Form &src)
 {
-    if (src.getSign() == true)
-        std::cout << name << " signed " << src.getName() << std::endl;
-
+    try 
+    {
+        src.beSigned( *this);
+    }
+    catch (Form::GradeTooLowException &e)
+    {
+        std::cout << "could not sign " <<  std::endl;
+    }
 }
 
 std::string Bureaucrat::getName(void) const {

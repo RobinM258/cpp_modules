@@ -16,7 +16,6 @@ class occurence_not_found : public std::exception
 template<typename T>
 void easyfind( T& a, int b)
 {
-    typename T::iterator it;
     if((std::find(a.begin(), a.end(), b) == a.end()))
         throw occurence_not_found();
     else 

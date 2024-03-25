@@ -5,6 +5,8 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <cstdlib>
+#include <sstream>
 
 class BitcoinExchange 
 {
@@ -16,5 +18,6 @@ class BitcoinExchange
         ~BitcoinExchange(void);
         BitcoinExchange & operator=( const BitcoinExchange & );
         int valid_line(std::string);
+        int return_value(std::string, long int );
 };
 #endif

@@ -2,6 +2,6 @@
 
 int main (void)
 {
-    BitcoinExchange t("test.cvs");
+    BitcoinExchange t("test.csv");
     return 0;
 }

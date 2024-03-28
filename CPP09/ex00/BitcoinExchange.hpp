@@ -7,6 +7,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <sstream>
+#include <cstring>
 
 class BitcoinExchange 
 {
@@ -18,6 +19,7 @@ class BitcoinExchange
         ~BitcoinExchange(void);
         BitcoinExchange & operator=( const BitcoinExchange & );
         int valid_line(std::string);
-        int return_value(std::string, long int );
+        int return_value(std::string, float );
+        int search_date(std::string, float );
 };
 #endif

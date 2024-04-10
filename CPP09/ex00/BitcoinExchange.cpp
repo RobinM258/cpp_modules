@@ -23,7 +23,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &ref )
 {
-    (void) ref;
+    file = ref.file;
     return (*this);
 }
 int BitcoinExchange::search_date(std::string date, float value)

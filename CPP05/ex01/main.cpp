@@ -21,10 +21,11 @@ int main (void)
     {
         Form test("Robin");
         Bureaucrat test2(150, "Victor");
+        std::cout << test.getSign() << std::endl;
         test2.signForm(test);
+        std::cout << test.getSign() << std::endl;
         Form test3;
         std::cout << test;
-        std::cout << test.getSign() << std::endl;
         test.beSigned(test2);
         std::cout << test.getSign() << std::endl;
         test2.signForm(test);

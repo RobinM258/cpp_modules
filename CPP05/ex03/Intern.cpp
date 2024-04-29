@@ -25,6 +25,7 @@ Intern::~Intern(void) {}
 Form* Intern::makeform(std::string name, std::string target)
 {
     int i;
+    int j = 3;
 
     i = 0;
     std::string requestform[] =
@@ -44,10 +45,20 @@ Form* Intern::makeform(std::string name, std::string target)
         if (name == requestform[i])
         {
             std::cout << "Intern creates " << name << std::endl;
-            return form[i];
+            j = i;
         }
         i++;
     }
+    i = 0;
+    while (i < 3)
+    {
+        if (i != j)
+        {
+            delete form[i];
+        }
+        i++;
+    }
+    return form[j];
     std::cout << "Intern cannot create Form" << std::endl;
     return NULL;
 }

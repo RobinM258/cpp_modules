@@ -24,12 +24,12 @@ int main (void)
         ShrubberyCreationForm test2("Victor");
         RobotomyRequestForm test4("Robin");
         PresidentialPardonForm test5("Axel");
-        test5.beSigned(test3);
-        test4.beSigned(test3);
-        test2.beSigned(test3);
+        // test5.beSigned(test3);
+        // test4.beSigned(test3);
+        // test2.beSigned(test3);
         //test4.exec(test3);
         //test4.exec(test3);
-        test5.exec(test3);
+        //test5.exec(test3);
         //test4.exec(test3);
         //test2.exec(test3);
     }

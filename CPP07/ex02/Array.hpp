@@ -42,7 +42,8 @@ class Array {
             }
             return *this;
        };
-      ~Array(void){ delete [] array;};
+       ~Array(void){ delete [] array;};
+      
     class Out_Of_Range: public std::exception {
         public:
             virtual const char* what() const throw() { return "index out of range";}

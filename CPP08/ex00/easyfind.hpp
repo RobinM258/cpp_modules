@@ -20,8 +20,6 @@ void easyfind( T& a, int b)
         throw occurence_not_found();
     else 
         std::cout << "Find occurence" << std::endl;
-
-
 }
 
 #endif

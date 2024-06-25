@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 #include <sstream> 
-#include <locale> 
+#include <locale>
+#include <cctype>
 
 class Converter{
     private:

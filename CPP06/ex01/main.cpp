@@ -1,12 +1,19 @@
-int main()
-{
-    Data* original(1, "Test", 42.42f);
-    uintptr_t raw = Serializer::serialize(&original);
-    Data* deserialize = Serializer::deserialize(raw);
+#include "Serialize.hpp"
 
-    if (deserialize == &original)
-        std::cout << "Test reussi" << std::endl;
-    else
-        std::cout <<  "Test raté" << std::endl;
-    return 0;
+int main() {
+	Data* data;
+	uintptr_t rawData;
+	Data* retData;
+	data = new Data;
+
+	std::cout << "Data             : " << data << std::endl;
+	rawData = Serializer::serialize(data);
+	std::cout << "Raw data         : " << rawData << std::endl;
+	retData = Serializer::deserialize(rawData);
+	std::cout << "Deserialized data: " << retData << std::endl;
+
+	delete data;
+
+	return 0;
 }
+

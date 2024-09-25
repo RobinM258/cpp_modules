@@ -1,15 +1,23 @@
-NAME = Bureaucrat
+NAME = serializer
 
 F = main \
-	Bureaucrat
+	Base \
+	A \
+	B \
+	C \
+
+
 S = $(foreach f, $(F), $(f).cpp)
 OBJ = $(S:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g
 
 all: $(NAME)
+r: re
+	./$(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(OBJ) $(CFLAGS) -o $(NAME) -g -fsanitize=address
+	c++ $(OBJ) $(CFLAGS) -o $(NAME)
 
 .cpp.o:
 	c++ -o $@ -c $< $(CFLAGS)

@@ -1,6 +1,7 @@
 NAME = serializer
 
-F = main
+F = main \
+	Serialize
 
 S = $(foreach f, $(F), $(f).cpp)
 OBJ = $(S:.cpp=.o)

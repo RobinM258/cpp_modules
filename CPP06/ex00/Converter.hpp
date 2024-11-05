@@ -6,15 +6,21 @@
 #include <sstream> 
 #include <locale>
 #include <cctype>
+#include <stdlib.h>
+#include <climits>
 #include <iomanip>
+#include <stdlib.h>
 
 class Converter{
     private:
-        static int getType(std::string arg);
+        Converter();
     public:
         static void converter(std::string arg);
+        static void ConverterToChar(std::string arg);
+        static void ConverterToInt(std::string arg);
+        static void ConverterToFloat(std::string arg);
+        static void ConverterToDouble(std::string arg);
 };
 
-//std::ostream& operator<<( std::ostream& out, const Converter& src );
 
 #endif

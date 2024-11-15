@@ -1,15 +1,20 @@
 #include "Converter.hpp"
 
-void Converter::ConverterToChar(std::string arg) {
+void ScalarConverter::ScalarConverterToChar(std::string arg) {
     if (arg.size() == 1)
         std::cout << "char: " << arg << std::endl;
     else if (strtod(arg.data(), NULL) >= 33 && strtod(arg.data(), NULL) <= 126)
-        std::cout << "char:" << static_cast<char> (strtod(arg.data(), NULL)) << std::endl;
+        std::cout << "char: " << static_cast<char> (strtod(arg.data(), NULL)) << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
 }
 
-void Converter::ConverterToInt(std::string arg) {
+void ScalarConverter::ScalarConverterToInt(std::string arg) {
+    if (arg == "nanf" || arg == "nan")
+    {
+        std::cout << "int: nan" << std::endl;
+        return;
+    }
     if (!isdigit(arg[0]))
     {
         std::cout << "int: impossible" << std::endl;
@@ -25,19 +30,15 @@ void Converter::ConverterToInt(std::string arg) {
     std::cout << "int: " << a << std::endl;
 }
 
-void Converter::ConverterToFloat(std::string arg) {
+void ScalarConverter::ScalarConverterToFloat(std::string arg) {
     char *test;
-    if (arg == "nan")
-    {
-         std::cout << "float: nanf" << std::endl;
-        return;
-    }
-    if (!isdigit(arg[0]))
+
+    float a = static_cast<float> (strtod(arg.data(), &test));
+    if (test[0] && test[0] != 'f')
     {
         std::cout << "float: impossible" << std::endl;
         return;
     }
-    float a = static_cast<float> (strtod(arg.data(), &test));
     if (a == static_cast<int> (strtod(arg.data(), &test)))
     {
         std::cout << "float: " << std::setprecision(arg.size()) << a << ".0f" << std::endl;
@@ -46,19 +47,15 @@ void Converter::ConverterToFloat(std::string arg) {
     std::cout << "float: " << std::setprecision(arg.size()) << a << "f" << std::endl;
 }
 
-void Converter::ConverterToDouble(std::string arg) {
+void ScalarConverter::ScalarConverterToDouble(std::string arg) {
     char *test;
-    if (arg == "nan")
-    {
-         std::cout << "double: nan" << std::endl;
-        return;
-    }
-    if (!isdigit(arg[0]))
+
+    double a = static_cast<double> (strtod(arg.data(), &test));
+    if (test[0] && test[0] != 'f')
     {
         std::cout << "double: impossible" << std::endl;
         return;
     }
-    double a = static_cast<double> (strtod(arg.data(), &test));
     if (a == static_cast<int> (strtod(arg.data(), &test)))
     {
         std::cout << "double: " << std::setprecision(arg.size()) << a << ".0" << std::endl;
@@ -66,12 +63,20 @@ void Converter::ConverterToDouble(std::string arg) {
     }
     std::cout << "double: " << std::setprecision(arg.size()) << a << std::endl;
 }
+ScalarConverter::~ScalarConverter() {
 
-void Converter::converter(std::string arg){
-    ConverterToChar(arg);
-    ConverterToInt(arg);
-    ConverterToFloat(arg);
-    ConverterToDouble(arg);
+}
+ScalarConverter::ScalarConverter(const ScalarConverter & obj) {
+    *this = obj;
+}
+ScalarConverter & ScalarConverter::operator=(const ScalarConverter & src) {
+    return *this;
+}
+void ScalarConverter::Scalarconverter(std::string arg){
+    ScalarConverterToChar(arg);
+    ScalarConverterToInt(arg);
+    ScalarConverterToFloat(arg);
+    ScalarConverterToDouble(arg);
 }
 
 

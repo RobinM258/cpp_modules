@@ -5,21 +5,23 @@
 #include <string>
 #include <sstream> 
 #include <locale>
-#include <cctype>
 #include <stdlib.h>
 #include <climits>
 #include <iomanip>
-#include <stdlib.h>
+// #include <stdlib.h>
 
-class Converter{
+class ScalarConverter{
     private:
-        Converter();
+        ScalarConverter();
+        ~ScalarConverter();
+        ScalarConverter(const ScalarConverter &);
+        ScalarConverter & operator=(const ScalarConverter &);
     public:
-        static void converter(std::string arg);
-        static void ConverterToChar(std::string arg);
-        static void ConverterToInt(std::string arg);
-        static void ConverterToFloat(std::string arg);
-        static void ConverterToDouble(std::string arg);
+        static void Scalarconverter(std::string arg);
+        static void ScalarConverterToChar(std::string arg);
+        static void ScalarConverterToInt(std::string arg);
+        static void ScalarConverterToFloat(std::string arg);
+        static void ScalarConverterToDouble(std::string arg);
 };
 
 

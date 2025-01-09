@@ -1,4 +1,4 @@
-NAME = Wathever
+NAME = Whatever
 
 F = main 
 S = $(foreach f, $(F), $(f).cpp)

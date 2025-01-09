@@ -12,12 +12,17 @@ int main( void )
     Array< int > intArray( SIZE );
     Array< int > intArray2( SIZE );
     Array< int > intArray3( 1 );
+    Array< int * > intArray4( 1 );
+    int * a = new int();
 
     for (int i = 0; i < SIZE; ++i) {
         intArray[i] = i;
     }
     intArray2 = intArray;
     intArray3[0] = 258;
+    intArray4[0] = a;
+
+    std::cout << intArray4[0] << std::endl;
     for (int i = 0; i < SIZE; ++i) {
         std::cout << intArray[i] << " ";
     }
@@ -35,6 +40,7 @@ int main( void )
         std::cout << "Error: " << e.what() << std::endl;
     }
     std::cout << "-----------------------------------------------------" << std::endl;
+    delete a;
 
     return ( 0 );
 }

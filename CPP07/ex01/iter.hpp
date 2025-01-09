@@ -1,16 +1,21 @@
-#ifndef ITER
-#define ITER
+#ifndef ITER_HPP
+#define ITER_HPP
 
 #include <iostream>
 
 template<typename T>
 
-void iter(T *array, size_t len, void (*f)(T &))
+void iter(T *array, long int len, void (*f)(T &))
 {
-    size_t i = 0;
+    if (len < 0)
+    {
+        std::cout << "Integer must be positive " << len << std::endl;
+        return ;
+    }
+    long int i = 0;
     while (i < len)
     {
-        f (array[i]);
+       f (array[i]);
         i++;
     }
 }

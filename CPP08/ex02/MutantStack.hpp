@@ -22,6 +22,7 @@ class MutantStack : public std::stack<T, Container>
         {
             return this->c.end();
         }
+
 };
 
 #endif

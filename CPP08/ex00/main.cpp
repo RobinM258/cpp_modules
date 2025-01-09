@@ -3,7 +3,7 @@
 int main(void)
 {
     std::vector<int> tab;
-    std::vector<int> tab2;
+    std::list<int> tab2;
     try
     {
         tab.push_back(10);

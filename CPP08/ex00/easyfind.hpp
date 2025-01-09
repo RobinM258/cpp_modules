@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm> 
+#include <list>
 
 class occurence_not_found : public std::exception
 {

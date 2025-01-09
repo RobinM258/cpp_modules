@@ -36,7 +36,7 @@ int Span::shortestSpan(void)
                 shortest = std::abs(*it - *itcpy);
         }
     }
-    if (shortest < 0)
+    if (shortest <= 0)
         throw Vector_lenght();
     return shortest;
 }

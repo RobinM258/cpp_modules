@@ -46,6 +46,8 @@ int main()
             std::cout << *il << std::endl;
             ++il;
         }
+        std::list<int> r(mlist);
+        std::cout << r.size() << std::endl;
 
     }
     return 0;

@@ -19,8 +19,11 @@ class PmergeMe
         template <typename T>
         void display(T &);
 
+        std::vector<int> jacobsthal(int);
         std::vector<std::vector<int> > TransformDouble(const std::vector<int>& input);
-        void Separate(const std::vector<std::vector<int> > & groups, std::vector<int>& Small, std::vector<int>& Large);
+        std::vector<std::vector<int> > Separate(const std::vector<std::vector<int> > & groups);
+        std::vector<int> sort(std::vector<std::vector<int> > & output);
+        std::vector<int> SortTab(std::vector<int> small, std::vector<int> large);
 
 
 };

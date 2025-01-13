@@ -1,6 +1,7 @@
 #include "PmergeMe.hpp"
 #include <algorithm>
 #include <unistd.h>
+#include <sys/time.h>
 
 PmergeMe::PmergeMe(int ac, char **av) {
     for(int i = 1; i < ac; i++)
@@ -9,20 +10,32 @@ PmergeMe::PmergeMe(int ac, char **av) {
         {
             if (!std::isdigit(av[i][r]))
             {
-                std::cout << "Wrong arguments" << av[i][r] << std::endl;
+                std::cout << "Wrong arguments " << av[i][r] << std::endl;
                 return;
             }
         }
         char **nul = NULL;
         long nb = strtol(av[i], nul, 10);
+        if (nb > 2147483647)
+        {
+            std::cout << "The arguments must be an integer " << nb << std::endl;
+            return;
+        }
         _vect.push_back(nb);
         _lst.push_back(nb);
     }
+    std::cout << "Before : ";
     display(_vect);
-    
+    timeval tv;
+    timeval tv2;
+    gettimeofday(&tv, NULL);
     std::vector<std::vector<int> > output = Separate(TransformDouble(_vect));
-    //SortTab(output[0], output[1]);
-    sort(output);
+    std::vector<int> result;
+    result = sort(output);
+    gettimeofday(&tv2, NULL);
+    std::cout << "After  : ";
+    display(result);
+    std::cout << "Time to process a range of " << _vect.size() << " elements with std::vector : " << tv2.tv_usec - tv.tv_usec << " μs" << std::endl;
 }
 
 
@@ -36,6 +49,16 @@ std::vector<int> PmergeMe::jacobsthal(int size) {
     while (b < size)
     {
         next = b + 2 * a;
+        if (next > size)
+        {
+            while (i < size)
+            {
+                i++;
+                indices.push_back(i);
+            }
+            break;
+        }
+        if (next != size)
         indices.push_back(next);
         i = b + 1;
         while (i < next)
@@ -53,17 +76,23 @@ std::vector<int> PmergeMe::sort(std::vector<std::vector<int> > & output)
 {
     std::vector<int> big = output[1];
     int nb;
-    std::cout << "Nouvelle recurssion" << std::endl;
-    display(output[0]);
-    display(output[1]);
+    // std::cout << "Nouvelle recurssion" << std::endl;
+    // display(output[0]);
+    // display(output[1]);
+    if (output[0].size() == 1 && output[1].size() == 1)
+    {
+        output[0].push_back(output[1][0]);
+        return output[0];
+    }
+    if (output[0].size() == 1)
+        return output[0];
     if (output[0].size() > 2)
     {
-
         output = Separate(TransformDouble(output[0]));
         sort(output);
     }
-    std::cout << "Vite fait" << std::endl;
-    std::cout << output[0][0] << " " << output[0][1] << " " <<  output[0].size() << std::endl;
+    // std::cout << "Vite fait" << std::endl;
+    // std::cout << output[0][0] << " " << output[0][1] << " " <<  output[0].size() << std::endl;
     if (output[0].size() <= 2 && output[0][1] < output[0][0])
     {
         nb = output[0][0];
@@ -71,18 +100,27 @@ std::vector<int> PmergeMe::sort(std::vector<std::vector<int> > & output)
         output[0][1] = nb;
     }
     output[0] = SortTab(output[0], big);
-    display(output[0]);
+   // display(output[0]);
     return output[0];
 }
 
 std::vector<int> PmergeMe::SortTab(std::vector<int> Small, std::vector<int> Large)
 {
     std::vector<int> NewSmall = Small;
+   // std::cout << Large.size() << " test" <<std::endl;
+    std::vector<int> jacob = jacobsthal(Large.size());
     size_t i = 0;
+    // for (size_t j = 0; j < jacob.size(); j++)
+    //     {
+    //         std::cout << jacob[j] << " " ;
+    //     }
     while (i < Large.size())
-    {
-        std::vector<int>::iterator pos = std::lower_bound(NewSmall.begin(), NewSmall.end(), Large[i]);
-        NewSmall.insert(pos, Large[i]);
+    {   
+        //display(Large);
+        //std::cout << std::endl;
+        std::vector<int>::iterator pos = std::lower_bound(NewSmall.begin(), NewSmall.end(), Large[jacob[i]]);
+        NewSmall.insert(pos, Large[jacob[i]]);
+        //display(NewSmall);
         i++;
     }
     return NewSmall;

@@ -2,12 +2,12 @@
 
 int main (int ac, char **av)
 {
-    (void)ac;
-    if (ac < 2)
+    if (ac > 2)
     {
-        std::cout << "Error: could not open file" << std::endl;
+        std::cout << "Wrong number of arguments" << std::endl;
         return 1;
     }
-    BitcoinExchange t(av[1]);
+    else 
+        BitcoinExchange btc(av[1]);
     return 0;
 }

@@ -3,6 +3,12 @@
 BitcoinExchange::BitcoinExchange(const char *str)
 {
     std::string line;
+    int len = strlen(str);
+    if (strncmp(str + len - 4, ".csv", 4) != 0 || len <= 4)
+    {
+        std::cout << "Error: could not open file" << std::endl;
+        return ;
+    }
     std::ifstream in(str);
     if (!in)
     {
@@ -88,46 +94,86 @@ int BitcoinExchange::return_value(std::string date, float value)
     search_date(date, value);
     return 0;
 }
+
+int BitcoinExchange::TrueValue(std::string line, int index) 
+{
+    std::stringstream ss (line);
+    int value ;
+    ss >> value;
+    //std::cout << "Verification de : " << value << " " << index << std::endl;
+    if (index == 0)
+    {
+        if (value < 2009)
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            return (1);
+        }
+    }
+    else if (index == 1)
+    {
+        if (value > 12  ||  value <= 0)
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            return (1);
+        }
+    }
+    else if (index == 2)
+    {
+        if (value > 31 ||  value <= 0)
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            return (1);
+        }
+    }
+
+    return 0;
+}
+
 int BitcoinExchange::valid_line(std::string line)
 {
     int i = 0;
-    while (i < 4)
+    int j = 0;
+    std::string verifval;
+    while (isdigit(line[i]))
     {
-        if(!isdigit(line[i]))
-        {
-            std::cout << "Error: bad input => " << line << std::endl;
-            return (1);
-        }
+        verifval.push_back(line[i]);
+        j++;
         i++;
     }
+    if (TrueValue(verifval, 0) == 1)
+        return 1;
+    j = 0;
+    verifval = "";
     if (line[i++]  != '-')
     {
         std::cout << "Error: bad input => " << line << std::endl;
         return (1);
     }
-    while (i < 7)
+
+    while (isdigit(line[i]))
     {
-        if(!isdigit(line[i]))
-        {
-            std::cout << "Error: bad input => " << line << std::endl;
-            return (1);
-        }
+        verifval.push_back(line[i]);
+        j++;
         i++;
     }
+    if (TrueValue(verifval, 1) == 1)
+        return 1;
+    j = 0;
+    verifval = "";
     if (line[i++]  != '-')
     {
         std::cout << "Error: bad input => " << line << std::endl;
         return (1);
     }
-    while (i < 10)
+
+    while (isdigit(line[i]))
     {
-        if(!isdigit(line[i]))
-        {
-            std::cout << "Error: bad input => " << line << std::endl;
-            return (1);
-        }
+        verifval.push_back(line[i]);
+        j++;
         i++;
     }
+    if (TrueValue(verifval, 2) == 1)
+        return 1;
     if (line.find('|') >= line.size())
     {
         std::cout << "Error: bad input => " << line << std::endl;
@@ -139,9 +185,9 @@ int BitcoinExchange::valid_line(std::string line)
     std::stringstream ss(num);
     float value;
     ss >> value;
-    if (value < 0)
+    if (value <= 0)
     {
-        std::cout << "Error: not positive number." << std::endl;
+        std::cout << "Error: Wrong number." << std::endl;
         return 1;
     }
     if (value > 10000)

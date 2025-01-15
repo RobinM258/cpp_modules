@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <sstream>
 #include <cstring>
+#include <string>
 
 class BitcoinExchange 
 {
@@ -21,5 +22,6 @@ class BitcoinExchange
         int valid_line(std::string);
         int return_value(std::string, float );
         int search_date(std::string, float );
+        int TrueValue(std::string , int);
 };
 #endif

@@ -1,5 +1,5 @@
 #include <vector>
-#include <list>
+#include <deque>
 #include <iostream>
 #include <string.h>
 #include <cctype>
@@ -9,7 +9,7 @@ class PmergeMe
 {
     private:
         std::vector<int>    _vect;
-        std::list<int>      _lst;
+        std::deque<int>      _deque;
     public:
         PmergeMe(int ac, char **av);
         ~PmergeMe(void);
@@ -19,11 +19,17 @@ class PmergeMe
         template <typename T>
         void display(T &);
 
-        std::vector<int> jacobsthal(int);
-        std::vector<std::vector<int> > TransformDouble(const std::vector<int>& input);
-        std::vector<std::vector<int> > Separate(const std::vector<std::vector<int> > & groups);
-        std::vector<int> sort(std::vector<std::vector<int> > & output);
-        std::vector<int> SortTab(std::vector<int> small, std::vector<int> large);
+        std::vector<int> jacobsthalVector(int);
+        std::vector<std::vector<int> > TransformDoubleVector(const std::vector<int>& input);
+        std::vector<std::vector<int> > SeparateVector(const std::vector<std::vector<int> > & groups);
+        std::vector<int> sortVector(std::vector<std::vector<int> > & output);
+        std::vector<int> SortTabVector(std::vector<int> small, std::vector<int> large);
+
+        std::deque<int> jacobsthalDeque(int);
+        std::deque<std::deque<int> > TransformDoubleDeque(const std::deque<int>& input);
+        std::deque<std::deque<int> > SeparateDeque(const std::deque<std::deque<int> > & groups);
+        std::deque<int> sortDeque(std::deque<std::deque<int> > & output);
+        std::deque<int> SortTabDeque(std::deque<int> small, std::deque<int> large);
 
 
 };

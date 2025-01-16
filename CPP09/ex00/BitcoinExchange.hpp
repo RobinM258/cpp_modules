@@ -23,5 +23,6 @@ class BitcoinExchange
         int return_value(std::string, float );
         int search_date(std::string, float );
         int TrueValue(std::string , int);
+        std::string changedate(std::string date);
 };
 #endif

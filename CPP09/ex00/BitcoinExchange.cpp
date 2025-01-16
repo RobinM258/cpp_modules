@@ -32,8 +32,51 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &ref )
     file = ref.file;
     return (*this);
 }
+std::string BitcoinExchange::changedate(std::string date)
+{
+    std::string ret;
+    int i = 0;
+    while (i < 5)
+    {
+        ret.push_back(date[i]);
+        i++;
+    }
+    if (isdigit(date[i]) && isdigit(date[i + 1]))
+    {
+        ret.push_back(date[i]);
+        ret.push_back(date[i + 1]);
+        ret.push_back(date[i + 2]);
+        i += 3;
+    }
+    else
+    {
+        ret.push_back('0');
+        ret.push_back(date[i]);
+        ret.push_back(date[i + 1]);
+        i += 2;
+    }
+    if (isdigit(date[i]) && isdigit(date[i + 1]))
+    {
+        ret.push_back(date[i]);
+        ret.push_back(date[i + 1]);
+        ret.push_back(date[i + 2]);
+        i += 3;
+    }
+    else
+    {
+        ret.push_back('0');
+        ret.push_back(date[i]);
+        ret.push_back(date[i + 1]);
+        i += 2;
+    }
+
+   //std::cout << ret << std::endl;
+    return ret;
+}
+
 int BitcoinExchange::search_date(std::string date, float value)
 {
+    std::string dateparse = changedate(date);
     std::string line;
     std::ifstream in("data.csv");
     std::string tempo_date;
@@ -51,10 +94,11 @@ int BitcoinExchange::search_date(std::string date, float value)
     while (getline(in, line))
     {
         tempo_date = line.substr(0, line.find(','));
-        index = date.compare(tempo_date);
+        index = dateparse.compare(tempo_date);
         if (index < 0)
         {
-            num = line.substr(line.find(',') + 1, line.size());
+           // std::cout << "Comparaison " << dateparse << " " << tempo_date << std::endl;
+            num = new_line.substr(line.find(',') + 1, new_line.size());
             std::stringstream ss(num);
             ss >> values;
             result = value * values;
